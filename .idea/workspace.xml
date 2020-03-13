@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7a5fcf9b-edf5-4d46-9f46-0e367ebe649a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/apps/frappe/frappe/desk/moduleview.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frappe/frappe/desk/moduleview.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/apps/frappe" />
+  </component>
+  <component name="ProjectId" id="1YQhzXN3cr53AFlbpbnwbklrCUa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a5fcf9b-edf5-4d46-9f46-0e367ebe649a" name="Default Changelist" comment="" />
+      <created>1582880988399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582880988399</updated>
+      <workItem from="1582881006425" duration="1405000" />
+      <workItem from="1583320929438" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582904688247">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="184" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.821@0.23.1440.821" timestamp="1582904688247" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom" timestamp="1582962343468">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1582962343468" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1582904382770" />
+    <state width="1358" height="199" key="GridCell.Tab.0.center" timestamp="1582962343465">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1582962343465" />
+    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1582904382768" />
+    <state width="1358" height="199" key="GridCell.Tab.0.left" timestamp="1582962343463">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1582962343463" />
+    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1582904382768" />
+    <state width="1358" height="199" key="GridCell.Tab.0.right" timestamp="1582962343467">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1582962343467" />
+    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1582904382769" />
+    <state x="413" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1583320929832">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="413" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.812@0.23.1440.812" timestamp="1583320929832" />
+    <state x="413" y="266" key="com.intellij.ide.util.TipDialog/0.23.1440.822@0.23.1440.822" timestamp="1582881213201" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/frappe/frappe/desk/moduleview.py</url>
+          <line>237</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,39 @@
+[INFO] 2020-03-13 13:28:29,366 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 13:28:29,469 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 13:28:29,502 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 13:29:29,141 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 13:29:29,144 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 13:29:29,207 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 13:29:29,227 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 13:29:29,289 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 13:29:29,441 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 13:29:29,507 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 13:29:29,572 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 13:29:29,634 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 13:29:29,661 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting

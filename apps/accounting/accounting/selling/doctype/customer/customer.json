@@ -1,0 +1,151 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:customer_name",
+ "creation": "2020-02-27 12:31:27.083842",
+ "description": "Buyer of Goods and Services.",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info",
+  "salutation",
+  "customer_name",
+  "gender",
+  "primary_address_and_contact_detail",
+  "customer_primary_contact",
+  "mobile_no",
+  "email_id",
+  "column_break_10",
+  "customer_primary_address",
+  "primary_address"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info",
+   "fieldtype": "Section Break",
+   "label": "Name and Type",
+   "options": "fa fa-user"
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "bold": 1,
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Full Name",
+   "no_copy": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "primary_address_and_contact_detail",
+   "fieldtype": "Section Break",
+   "label": "Primary Address and Contact Detail"
+  },
+  {
+   "description": "Reselect, if the chosen contact is edited after save",
+   "fieldname": "customer_primary_contact",
+   "fieldtype": "Link",
+   "label": "Customer Primary Contact",
+   "options": "Contact"
+  },
+  {
+   "fetch_from": "customer_primary_contact.mobile_no",
+   "fieldname": "mobile_no",
+   "fieldtype": "Read Only",
+   "label": "Mobile No"
+  },
+  {
+   "fetch_from": "customer_primary_contact.email_id",
+   "fieldname": "email_id",
+   "fieldtype": "Read Only",
+   "label": "Email Id"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Reselect, if the chosen address is edited after save",
+   "fieldname": "customer_primary_address",
+   "fieldtype": "Link",
+   "label": "Customer Primary Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "primary_address",
+   "fieldtype": "Text",
+   "label": "Primary Address",
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-user",
+ "links": [],
+ "modified": "2020-03-11 15:59:44.604128",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Customer",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accountant",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "customer_name, mobile_no, primary_address",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "title_field": "customer_name",
+ "track_changes": 1
+}

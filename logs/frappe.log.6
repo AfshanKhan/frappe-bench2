@@ -1,0 +1,1317 @@
+[DEBUG] 2020-03-13 14:43:55,214 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:43:55,284 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:43:55,286 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:43:55,364 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:43:55,384 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:43:55,462 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:43:55,572 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:43:55,657 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:43:55,738 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:43:55,810 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:43:55,840 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[ERROR] 2020-03-13 14:44:46,202 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "cached_timestamp": "",
+ "cmd": "frappe.desk.form.load.getdoctype",
+ "doctype": "Journal Entry",
+ "with_parent": "1"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 364
+    print("fiscal year1 : "fiscal_year)
+                                     ^
+SyntaxError: invalid syntax
+[ERROR] 2020-03-13 14:44:46,550 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 364
+    print("fiscal year1 : "fiscal_year)
+                                     ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of SyntaxError object>
+    ^
+SyntaxError: invalid syntax
+[DEBUG] 2020-03-13 14:44:55,615 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:44:55,688 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:44:55,690 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:44:55,765 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:44:55,788 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:44:55,885 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:44:56,015 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:44:56,089 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:44:56,157 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:44:56,229 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:44:56,263 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[ERROR] 2020-03-13 14:45:26,491 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "cached_timestamp": "",
+ "cmd": "frappe.desk.form.load.getdoctype",
+ "doctype": "Journal Entry",
+ "with_parent": "1"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 365
+    print("fiscal years1 : "fiscal_years)
+                                       ^
+SyntaxError: invalid syntax
+[ERROR] 2020-03-13 14:45:27,024 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 365
+    print("fiscal years1 : "fiscal_years)
+                                       ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of SyntaxError object>
+    ^
+SyntaxError: invalid syntax
+[DEBUG] 2020-03-13 14:45:56,002 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:45:56,046 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:45:56,048 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:45:56,118 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:45:56,137 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:45:56,208 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:45:56,368 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:45:56,446 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:45:56,525 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:45:56,598 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:45:56,630 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:45:56,706 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.twofactor.delete_all_barcodes_for_users for accounting
+[INFO] 2020-03-13 14:45:57,042 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.twofactor.delete_all_barcodes_for_users for accounting
+[INFO] 2020-03-13 14:45:57,239 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.website.doctype.web_page.web_page.check_publish_status for accounting
+[INFO] 2020-03-13 14:45:57,515 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.website.doctype.web_page.web_page.check_publish_status for accounting
+[INFO] 2020-03-13 14:45:57,601 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.oauth.delete_oauth2_data for accounting
+[INFO] 2020-03-13 14:45:57,897 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.oauth.delete_oauth2_data for accounting
+[ERROR] 2020-03-13 14:46:16,689 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "cached_timestamp": "",
+ "cmd": "frappe.desk.form.load.getdoctype",
+ "doctype": "Journal Entry",
+ "with_parent": "1"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 366
+    print("fiscal years1 : "fiscal_years)
+                                       ^
+SyntaxError: invalid syntax
+[ERROR] 2020-03-13 14:46:16,989 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 366
+    print("fiscal years1 : "fiscal_years)
+                                       ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of SyntaxError object>
+    ^
+SyntaxError: invalid syntax
+[ERROR] 2020-03-13 14:46:44,355 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "cached_timestamp": "",
+ "cmd": "frappe.desk.form.load.getdoctype",
+ "doctype": "Journal Entry",
+ "with_parent": "1"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 372
+    print("fiscal year1 : "fiscal_year)
+                                     ^
+SyntaxError: invalid syntax
+[ERROR] 2020-03-13 14:46:44,829 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 70, in getdoctype
+    docs = get_meta_bundle(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/load.py", line 80, in get_meta_bundle
+    bundle = [frappe.desk.form.meta.get_meta(doctype)]
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 29, in get_meta
+    meta = FormMeta(doctype)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 39, in __init__
+    self.load_assets()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 53, in load_assets
+    self.load_templates()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/meta.py", line 179, in load_templates
+    module = load_doctype_module(self.name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/modules/utils.py", line 204, in load_doctype_module
+    doctype_python_modules[key] = frappe.get_module(module_name)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 836, in get_module
+    return importlib.import_module(modulename)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 372
+    print("fiscal year1 : "fiscal_year)
+                                     ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of SyntaxError object>
+    ^
+SyntaxError: invalid syntax
+[DEBUG] 2020-03-13 14:46:56,419 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:46:56,551 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:46:56,559 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:46:56,652 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:46:56,674 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:46:56,750 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:46:56,883 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:46:56,954 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:46:57,032 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:46:57,109 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:46:57,144 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[ERROR] 2020-03-13 14:47:36,800 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "action": "Submit",
+ "cmd": "frappe.desk.form.save.savedocs",
+ "doc": "{\"name\":\"JE00001\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"idx\":0,\"docstatus\":0,\"title\":\"Cash\",\"voucher_type\":\"Journal Entry\",\"posting_date\":\"2020-03-13\",\"company\":\"Gada Electronics\",\"total_debit\":100000,\"total_credit\":100000,\"difference\":0,\"total_amount\":0,\"is_opening\":\"Yes\",\"doctype\":\"Journal Entry\",\"accounts\":[{\"name\":\"95121e783b\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"parent\":\"JE00001\",\"parentfield\":\"accounts\",\"parenttype\":\"Journal Entry\",\"idx\":1,\"docstatus\":0,\"account\":\"Cash\",\"party_type\":\"\",\"party\":\"\",\"debit\":100000,\"credit\":0,\"reference_type\":\"\",\"against_account\":\"Shareholders Funds\",\"doctype\":\"Journal Entry Account\"},{\"name\":\"bbf4fa61e0\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"parent\":\"JE00001\",\"parentfield\":\"accounts\",\"parenttype\":\"Journal Entry\",\"idx\":2,\"docstatus\":0,\"account\":\"Shareholders Funds\",\"party_type\":\"\",\"party\":\"\",\"debit\":0,\"credit\":100000,\"reference_type\":\"\",\"against_account\":\"Cash\",\"doctype\":\"Journal Entry Account\"}],\"__last_sync_on\":\"2020-03-13T09:17:32.049Z\"}"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/save.py", line 19, in savedocs
+    doc.submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 875, in submit
+    self._submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 864, in _submit
+    self.save()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 277, in save
+    return self._save(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 313, in _save
+    self.run_before_save_methods()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 908, in run_before_save_methods
+    self.run_method("validate")
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 803, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1090, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1073, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 797, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 34, in validate
+    self.set_account_and_party_balance()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 251, in set_account_and_party_balance
+    account_balance[d.account] = get_balance_on(account=d.account, date=self.posting_date)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+[ERROR] 2020-03-13 14:47:37,057 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/save.py", line 19, in savedocs
+    doc.submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 875, in submit
+    self._submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 864, in _submit
+    self.save()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 277, in save
+    return self._save(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 313, in _save
+    self.run_before_save_methods()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 908, in run_before_save_methods
+    self.run_method("validate")
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 803, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1090, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1073, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 797, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 34, in validate
+    self.set_account_and_party_balance()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 251, in set_account_and_party_balance
+    account_balance[d.account] = get_balance_on(account=d.account, date=self.posting_date)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of IndexError object>
+    ^
+SyntaxError: invalid syntax
+[DEBUG] 2020-03-13 14:47:56,740 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:47:56,780 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:47:56,782 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:47:56,859 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:47:56,877 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:47:56,961 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:47:57,073 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:47:57,149 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:47:57,212 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:47:57,283 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:47:57,314 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[DEBUG] 2020-03-13 14:48:57,028 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:48:57,059 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:48:57,061 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:48:57,122 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:48:57,133 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:48:57,200 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:48:57,255 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:48:57,347 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:48:57,442 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:48:57,510 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:48:57,540 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[DEBUG] 2020-03-13 14:49:57,308 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:49:57,390 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:49:57,392 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:49:57,461 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:49:57,489 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:49:57,552 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:49:57,696 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:49:57,777 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:49:57,877 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:49:57,962 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:49:57,994 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[DEBUG] 2020-03-13 14:50:57,642 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:50:57,742 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:50:57,746 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:50:57,811 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:50:57,833 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:50:57,906 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:50:58,059 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:50:58,175 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:50:58,269 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:50:58,392 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:50:58,448 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[ERROR] 2020-03-13 14:50:58,816 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "action": "Submit",
+ "cmd": "frappe.desk.form.save.savedocs",
+ "doc": "{\"name\":\"JE00001\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"idx\":0,\"docstatus\":0,\"title\":\"Cash\",\"voucher_type\":\"Journal Entry\",\"posting_date\":\"2020-03-13\",\"company\":\"Gada Electronics\",\"total_debit\":100000,\"total_credit\":100000,\"difference\":0,\"total_amount\":0,\"is_opening\":\"Yes\",\"doctype\":\"Journal Entry\",\"accounts\":[{\"name\":\"95121e783b\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"parent\":\"JE00001\",\"parentfield\":\"accounts\",\"parenttype\":\"Journal Entry\",\"idx\":1,\"docstatus\":0,\"account\":\"Cash\",\"party_type\":\"\",\"party\":\"\",\"debit\":100000,\"credit\":0,\"reference_type\":\"\",\"against_account\":\"Shareholders Funds\",\"doctype\":\"Journal Entry Account\"},{\"name\":\"bbf4fa61e0\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"parent\":\"JE00001\",\"parentfield\":\"accounts\",\"parenttype\":\"Journal Entry\",\"idx\":2,\"docstatus\":0,\"account\":\"Shareholders Funds\",\"party_type\":\"\",\"party\":\"\",\"debit\":0,\"credit\":100000,\"reference_type\":\"\",\"against_account\":\"Cash\",\"doctype\":\"Journal Entry Account\"}],\"__last_sync_on\":\"2020-03-13T09:20:47.387Z\"}"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/save.py", line 19, in savedocs
+    doc.submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 875, in submit
+    self._submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 864, in _submit
+    self.save()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 277, in save
+    return self._save(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 313, in _save
+    self.run_before_save_methods()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 908, in run_before_save_methods
+    self.run_method("validate")
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 803, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1090, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1073, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 797, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 34, in validate
+    self.set_account_and_party_balance()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 251, in set_account_and_party_balance
+    account_balance[d.account] = get_balance_on(account=d.account, date=self.posting_date)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+[ERROR] 2020-03-13 14:50:58,822 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/save.py", line 19, in savedocs
+    doc.submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 875, in submit
+    self._submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 864, in _submit
+    self.save()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 277, in save
+    return self._save(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 313, in _save
+    self.run_before_save_methods()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 908, in run_before_save_methods
+    self.run_method("validate")
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 803, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1090, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1073, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 797, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 34, in validate
+    self.set_account_and_party_balance()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 251, in set_account_and_party_balance
+    account_balance[d.account] = get_balance_on(account=d.account, date=self.posting_date)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of IndexError object>
+    ^
+SyntaxError: invalid syntax
+[DEBUG] 2020-03-13 14:51:57,994 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:51:58,048 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:51:58,050 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:51:58,111 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:51:58,126 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:51:58,189 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:51:58,331 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:51:58,394 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:51:58,457 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:51:58,520 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:51:58,547 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[DEBUG] 2020-03-13 14:52:58,342 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:52:58,439 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:52:58,443 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:52:58,519 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:52:58,545 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:52:58,620 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:52:58,781 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:52:58,870 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:52:58,959 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:52:59,032 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:52:59,068 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[DEBUG] 2020-03-13 14:53:58,625 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:53:58,764 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:53:58,776 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:53:58,961 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:53:58,986 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:53:59,055 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:53:59,214 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:53:59,277 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:53:59,341 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:53:59,405 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:53:59,434 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[ERROR] 2020-03-13 14:54:42,765 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "action": "Submit",
+ "cmd": "frappe.desk.form.save.savedocs",
+ "doc": "{\"name\":\"JE00001\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"idx\":0,\"docstatus\":0,\"title\":\"Cash\",\"voucher_type\":\"Journal Entry\",\"posting_date\":\"2020-03-13\",\"company\":\"Gada Electronics\",\"total_debit\":100000,\"total_credit\":100000,\"difference\":0,\"total_amount\":0,\"is_opening\":\"Yes\",\"doctype\":\"Journal Entry\",\"accounts\":[{\"name\":\"95121e783b\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"parent\":\"JE00001\",\"parentfield\":\"accounts\",\"parenttype\":\"Journal Entry\",\"idx\":1,\"docstatus\":0,\"account\":\"Cash\",\"party_type\":\"\",\"party\":\"\",\"debit\":100000,\"credit\":0,\"reference_type\":\"\",\"against_account\":\"Shareholders Funds\",\"doctype\":\"Journal Entry Account\"},{\"name\":\"bbf4fa61e0\",\"owner\":\"Administrator\",\"creation\":\"2020-03-13 14:36:42.114596\",\"modified\":\"2020-03-13 14:36:42.114596\",\"modified_by\":\"Administrator\",\"parent\":\"JE00001\",\"parentfield\":\"accounts\",\"parenttype\":\"Journal Entry\",\"idx\":2,\"docstatus\":0,\"account\":\"Shareholders Funds\",\"party_type\":\"\",\"party\":\"\",\"debit\":0,\"credit\":100000,\"reference_type\":\"\",\"against_account\":\"Cash\",\"doctype\":\"Journal Entry Account\"}],\"__last_sync_on\":\"2020-03-13T09:24:34.090Z\"}"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/save.py", line 19, in savedocs
+    doc.submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 875, in submit
+    self._submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 864, in _submit
+    self.save()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 277, in save
+    return self._save(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 313, in _save
+    self.run_before_save_methods()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 908, in run_before_save_methods
+    self.run_method("validate")
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 803, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1090, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1073, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 797, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 34, in validate
+    self.set_account_and_party_balance()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 251, in set_account_and_party_balance
+    account_balance[d.account] = get_balance_on(account=d.account, date=self.posting_date)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+[ERROR] 2020-03-13 14:54:42,970 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/desk/form/save.py", line 19, in savedocs
+    doc.submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 875, in submit
+    self._submit()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 864, in _submit
+    self.save()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 277, in save
+    return self._save(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 313, in _save
+    self.run_before_save_methods()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 908, in run_before_save_methods
+    self.run_method("validate")
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 803, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1090, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 1073, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/model/document.py", line 797, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 34, in validate
+    self.set_account_and_party_balance()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 251, in set_account_and_party_balance
+    account_balance[d.account] = get_balance_on(account=d.account, date=self.posting_date)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of IndexError object>
+    ^
+SyntaxError: invalid syntax
+[DEBUG] 2020-03-13 14:54:58,965 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:54:59,010 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:54:59,012 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:54:59,086 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:54:59,146 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:54:59,216 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:54:59,377 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:54:59,442 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:54:59,500 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:54:59,566 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:54:59,598 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[ERROR] 2020-03-13 14:55:05,600 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py:
+Site: accounting
+Form Dict: {
+ "account": "Cash",
+ "cmd": "accounting.accounts.doctype.journal_entry.journal_entry.get_account_balance_and_party_type",
+ "company": "Gada Electronics",
+ "credit": "0",
+ "date": "2020-03-13",
+ "debit": "0"
+}
+Request Error
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 506, in get_account_balance_and_party_type
+    "balance": get_balance_on(account, date),
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+[ERROR] 2020-03-13 14:55:05,608 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py:
+Could not take error snapshot: invalid syntax (<string>, line 1)
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/__init__.py", line 1068, in call
+    return fn(*args, **newargs)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 506, in get_account_balance_and_party_type
+    "balance": get_balance_on(account, date),
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/accounting/accounting/accounts/doctype/journal_entry/journal_entry.py", line 309, in get_balance_on
+    year_start_date = get_fiscal_year(date, verbose=0)[1]
+IndexError: tuple index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/error.py", line 132, in get_snapshot
+    value = eval(value)
+  File "<string>", line 1
+    <built-in method with_traceback of IndexError object>
+    ^
+SyntaxError: invalid syntax
+[DEBUG] 2020-03-13 14:55:59,299 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:55:59,400 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:55:59,402 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:55:59,466 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:55:59,488 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:55:59,551 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:55:59,713 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:55:59,791 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:55:59,903 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:55:59,970 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:56:00,000 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[DEBUG] 2020-03-13 14:56:59,660 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 14:56:59,757 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:56:59,759 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 14:56:59,822 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:56:59,844 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 14:56:59,917 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:57:00,087 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 14:57:00,152 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:57:00,223 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for accounting
+[INFO] 2020-03-13 14:57:00,289 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 14:57:00,318 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.queue.flush for accounting
+[INFO] 2020-03-13 15:01:39,037 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.google_calendar.google_calendar.sync for accounting
+[DEBUG] 2020-03-13 15:01:39,126 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/utils/scheduler.py:
+Site: accounting
+Queued events for site accounting
+[INFO] 2020-03-13 15:01:40,045 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.google_calendar.google_calendar.sync for accounting
+[INFO] 2020-03-13 15:01:40,146 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.desk.form.document_follow.send_hourly_updates for accounting
+[INFO] 2020-03-13 15:01:40,334 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.desk.form.document_follow.send_hourly_updates for accounting
+[INFO] 2020-03-13 15:01:40,422 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.deferred_insert.save_to_db for accounting
+[INFO] 2020-03-13 15:01:41,874 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.deferred_insert.save_to_db for accounting
+[INFO] 2020-03-13 15:01:42,062 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.desk.page.backups.backups.delete_downloadable_backups for accounting
+[INFO] 2020-03-13 15:01:42,776 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.desk.page.backups.backups.delete_downloadable_backups for accounting
+[INFO] 2020-03-13 15:01:42,866 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.error.collect_error_snapshots for accounting
+[INFO] 2020-03-13 15:01:43,161 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.error.collect_error_snapshots for accounting
+[INFO] 2020-03-13 15:01:43,330 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.model.utils.user_settings.sync_user_settings for accounting
+[INFO] 2020-03-13 15:01:43,524 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.model.utils.user_settings.sync_user_settings for accounting
+[INFO] 2020-03-13 15:01:43,598 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.model.utils.link_count.update_link_count for accounting
+[INFO] 2020-03-13 15:01:43,761 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.model.utils.link_count.update_link_count for accounting
+[INFO] 2020-03-13 15:01:43,844 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 15:01:43,846 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.utils.global_search.sync_global_search for accounting
+[INFO] 2020-03-13 15:01:43,985 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 15:01:44,032 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for accounting
+[INFO] 2020-03-13 15:01:44,153 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 15:01:44,260 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for accounting
+[INFO] 2020-03-13 15:01:44,330 | /Users/afshan/Dev/frappe/frappe-bench2/apps/frappe/frappe/core/doctype/scheduled_job_type/scheduled_job_type.py:
+Site: accounting
+Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for accounting

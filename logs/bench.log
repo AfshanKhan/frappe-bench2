@@ -1,0 +1,3 @@
+2020-02-24 19:06:53,592 INFO creating new app accounting
+2020-02-24 19:07:20,426 INFO installing accounting
+2020-02-24 19:07:20,426 INFO ./env/bin/pip install -q -U -e ./apps/accounting 

@@ -1,0 +1,33 @@
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "type": "node",
+//             "request": "launch",
+//             "name": "Launch Program",
+//             "skipFiles": [
+//                 "<node_internals>/**"
+//             ],
+//             "program": "${file}"
+//         }
+//     ]
+// }
+
+
+{
+    "name": "Bench",
+    "type": "python",
+    "request": "launch",
+    "program": "${workspaceFolder}/apps/frappe/frappe/utils/bench_helper.py",
+    "args": [
+        "frappe", "serve", "--port", "8000", "--noreload", "--nothreading"
+    ],
+    "pythonPath": "${workspaceFolder}/env/bin/python",
+    "cwd": "${workspaceFolder}/sites",
+    "env": {
+        "DEV_SERVER": "1"
+    }
+}

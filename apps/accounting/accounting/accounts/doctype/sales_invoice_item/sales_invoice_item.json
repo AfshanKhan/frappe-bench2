@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2020-02-28 15:08:29.380341",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "column_break_2",
+  "item_name",
+  "description_section",
+  "description",
+  "brand",
+  "quantity_and_rate",
+  "qty",
+  "section_break_18",
+  "rate",
+  "amount"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "columns": 4,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Item Name",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "print_width": "200px",
+   "reqd": 1,
+   "width": "200px"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Brand Name",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "quantity_and_rate",
+   "fieldtype": "Section Break"
+  },
+  {
+   "bold": 1,
+   "columns": 2,
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "bold": 1,
+   "columns": 2,
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "currency",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-03-13 11:42:59.617603",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Sales Invoice Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
