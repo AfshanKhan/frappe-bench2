@@ -181,7 +181,7 @@ class JournalEntry(Document):
 		"""this method populates the common properties of a gl entry record"""
 
 		posting_date = args.get('posting_date') or self.get('posting_date')
-		fiscal_years = get_fiscal_years(posting_date, company=self.company)
+		fiscal_years = get_fiscal_year(posting_date, company=self.company)
 		if len(fiscal_years) > 1:
 			frappe.throw(_("Multiple fiscal years exist for the date {0}. Please set company in Fiscal Year").format(
 				formatdate(posting_date)))
@@ -394,63 +394,6 @@ def get_fiscal_year(transaction_date=None, fiscal_year=None, label="Date", verbo
 
 	if transaction_date:
 		transaction_date = getdate(transaction_date)
-		
-	for fy in fiscal_years:
-		matched = False
-		if fiscal_year and fy.name == fiscal_year:
-			matched = True
-			
-		if (transaction_date and getdate(fy.year_start_date) <= transaction_date
-			and getdate(fy.year_end_date) >= transaction_date):
-			matched = True
-			
-		if matched:
-			if as_dict:
-				return (fy,)
-			else:
-				return ((fy.name, fy.year_start_date, fy.year_end_date),)
-	
-	error_msg = _("""{0} {1} not in any active Fiscal Year.""").format(label, formatdate(transaction_date))
-	if verbose==1: frappe.msgprint(error_msg)
-	raise FiscalYearError(error_msg)
-
-def get_fiscal_years(transaction_date=None, fiscal_year=None, label="Date", verbose=1, company=None, as_dict=False):
-	fiscal_years = frappe.cache().hget("fiscal_years", company) or []
-	print(fiscal_years)
-	if not fiscal_years:
-		# if year start date is 2012-04-01, year end date should be 2013-03-31 (hence subdate)
-		cond = ""
-		if fiscal_year:
-			cond += " and fy.name = {0}".format(frappe.db.escape(fiscal_year))
-		if company:
-			cond += """
-				and (not exists (select name
-					from `tabFiscal Year Company` fyc
-					where fyc.parent = fy.name)
-				or exists(select company
-					from `tabFiscal Year Company` fyc
-					where fyc.parent = fy.name
-					and fyc.company=%(company)s)
-				)
-			"""
-
-		fiscal_years = frappe.db.sql("""
-			select
-				fy.name, fy.year_start_date, fy.year_end_date
-			from
-				`tabFiscal Year` fy
-			where
-				disabled = 0 {0}
-			order by
-				fy.year_start_date desc""".format(cond), {
-				"company": company
-			}, as_dict=True)
-		frappe.cache().hset("fiscal_years", company, fiscal_years)
-
-	if transaction_date:
-		print(transaction_date)
-		transaction_date = getdate(transaction_date)
-		print(transaction_date)
 		
 	for fy in fiscal_years:
 		matched = False
