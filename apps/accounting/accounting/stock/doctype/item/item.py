@@ -13,8 +13,6 @@ class Item(Document):
 			self.description = self.item_name
 
 	def validate(self):
-		# super(Item, self).validate()
-
 		if not self.item_name:
 			self.item_name = self.item_code
 

@@ -8,6 +8,7 @@ import frappe
 from frappe.utils import cint, cstr
 from frappe import throw, _
 from frappe.utils.nestedset import NestedSet, get_ancestors_of, get_descendants_of
+from frappe.desk.reportview import get_match_cond, get_filters_cond
 
 
 # class Account(Document):
@@ -24,31 +25,14 @@ class Account(NestedSet):
 		else:
 			super(Account, self).on_update()
 
-	# def onload(self):
-	# 	# frozen_accounts_modifier = frappe.db.get_value("Accounts Settings", "Accounts Settings",
-	# 	# 	"frozen_accounts_modifier")
-	# 	# if not frozen_accounts_modifier or 
-	# 	if frozen_accounts_modifier in frappe.get_roles():
-	# 		self.set_onload("can_freeze_account", True)
-
-	# def autoname(self):
-		# from erpnext.accounts.utils import get_autoname_with_number
-		# self.name = get_autoname_with_number(self.account_number, self.account_name, None, self.company)
-
 	def validate(self):
-		# from erpnext.accounts.utils import validate_field_number
 		if frappe.local.flags.allow_unverified_charts:
 			return
 		self.validate_parent()
 		self.validate_root_details()
-		# validate_field_number("Account", self.name, self.account_number, self.company, "account_number")
 		self.validate_group_or_ledger()
 		self.set_root_and_report_type()
 		self.validate_mandatory()
-		# self.validate_frozen_accounts_modifier()
-		# self.validate_balance_must_be_debit_or_credit()
-		# self.validate_account_currency()
-		# self.validate_root_company_and_sync_account_to_children()
 
 	def validate_parent(self):
 		"""Fetch Parent Details and validate parent account"""
@@ -98,35 +82,6 @@ class Account(NestedSet):
 		if not self.parent_account and not self.is_group:
 			frappe.throw(_("Root Account must be a group"))
 
-	# def validate_root_company_and_sync_account_to_children(self):
-	# 	# ignore validation while creating new compnay or while syncing to child companies
-	# 	if frappe.local.flags.ignore_root_company_validation or self.flags.ignore_root_company_validation:
-	# 		return
-	# 	ancestors = get_root_company(self.company)
-	# 	if ancestors:
-	# 		if frappe.get_value("Company", self.company, "allow_account_creation_against_child_company"):
-	# 			return
-	# 		if not frappe.db.get_value("Account",
-	# 			{'account_name': self.account_name, 'company': ancestors[0]}, 'name'):
-	# 			frappe.throw(_("Please add the account to root level Company - %s" % ancestors[0]))
-	# 	else:
-	# 		descendants = get_descendants_of('Company', self.company)
-	# 		if not descendants: return
-	# 		parent_acc_name_map = {}
-	# 		parent_acc_name, parent_acc_number = frappe.db.get_value('Account', self.parent_account, \
-	# 			["account_name", "account_number"])
-	# 		filters = { 
-	# 			"company": ["in", descendants],
-	# 			"account_name": parent_acc_name, 
-	# 		}
-	# 		if parent_acc_number:
-	# 			filters["account_number"] = parent_acc_number
-
-	# 		for d in frappe.db.get_values('Account', filters=filters, fieldname=["company", "name"], as_dict=True):
-	# 			parent_acc_name_map[d["company"]] = d["name"]
-	# 		if not parent_acc_name_map: return
-	# 		self.create_account_for_child_company(parent_acc_name_map, descendants, parent_acc_name)
-
 	def validate_group_or_ledger(self):
 		if self.get("__islocal"):
 			return
@@ -141,31 +96,6 @@ class Account(NestedSet):
 			elif self.check_if_child_exists():
 				throw(_("Account with child nodes cannot be set as ledger"))
 
-	# def validate_frozen_accounts_modifier(self):
-	# 	old_value = frappe.db.get_value("Account", self.name, "freeze_account")
-	# 	if old_value and old_value != self.freeze_account:
-	# 		frozen_accounts_modifier = frappe.db.get_value('Accounts Settings', None, 'frozen_accounts_modifier')
-	# 		if not frozen_accounts_modifier or \
-	# 			frozen_accounts_modifier not in frappe.get_roles():
-	# 				throw(_("You are not authorized to set Frozen value"))
-
-	# def validate_balance_must_be_debit_or_credit(self):
-	# 	# from erpnext.accounts.utils import get_balance_on
-	# 	if not self.get("__islocal") and self.balance_must_be:
-	# 		# account_balance = get_balance_on(self.name)
-
-	# 		if account_balance > 0 and self.balance_must_be == "Credit":
-	# 			frappe.throw(_("Account balance already in Debit, you are not allowed to set 'Balance Must Be' as 'Credit'"))
-	# 		elif account_balance < 0 and self.balance_must_be == "Debit":
-	# 			frappe.throw(_("Account balance already in Credit, you are not allowed to set 'Balance Must Be' as 'Debit'"))
-
-	# def validate_account_currency(self):
-	# 	if not self.account_currency:
-	# 		self.account_currency = frappe.get_cached_value('Company',  self.company,  "default_currency")
-
-	# 	elif self.account_currency != frappe.db.get_value("Account", self.name, "account_currency"):
-	# 		if frappe.db.get_value("GL Entry", {"account": self.name}):
-	# 			frappe.throw(_("Currency can not be changed after making entries using some other currency"))
 
 	def convert_group_to_ledger(self):
 		if self.check_if_child_exists():
@@ -215,19 +145,6 @@ def get_parent_account(doctype, txt, searchfield, start, page_len, filters):
 		and %s like %s order by name limit %s, %s""" %
 		("%s", searchfield, "%s", "%s", "%s"),
 		(filters["company"], "%%%s%%" % txt, start, page_len), as_list=1)
-
-# def get_account_currency(account):
-# 	"""Helper function to get account currency"""
-# 	if not account:
-# 		return
-# 	def generator():
-# 		account_currency, company = frappe.get_cached_value("Account", account, ["account_currency", "company"])
-# 		if not account_currency:
-# 			account_currency = frappe.get_cached_value('Company',  company,  "default_currency")
-
-# 		return account_currency
-
-# 	return frappe.local_cache("account_currency", account, generator)
 
 def on_doctype_update():
 	frappe.db.add_index("Account", ["lft", "rgt"])
@@ -294,3 +211,24 @@ def get_root_company(company):
 	ancestors = get_ancestors_of('Company', company, "lft asc")
 	return [ancestors[0]] if ancestors else []
 
+@frappe.whitelist()
+def get_expense_account(doctype, txt, searchfield, start, page_len, filters):
+	
+	if not filters: filters = {}
+
+	condition = ""
+	if filters.get("company"):
+		condition += "and tabAccount.company = %(company)s"
+
+	return frappe.db.sql("""select tabAccount.name from `tabAccount`
+		where (tabAccount.report_type = "Profit and Loss"
+				or tabAccount.account_type in ("Expense Account", "Fixed Asset", "Temporary", "Asset Received But Not Billed", "Capital Work in Progress"))
+			and tabAccount.is_group=0
+			and tabAccount.docstatus!=2
+			and tabAccount.{key} LIKE %(txt)s
+			{condition} {match_condition}"""
+		.format(condition=condition, key=searchfield,
+			match_condition=get_match_cond(doctype)), {
+			'company': filters.get("company", ""),
+			'txt': '%' + txt + '%'
+		})

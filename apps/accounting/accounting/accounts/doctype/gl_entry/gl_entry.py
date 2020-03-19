@@ -144,15 +144,14 @@ def update_outstanding_amt_in_ref(against_voucher, against_voucher_type, bal):
 	data = []
 	# Update outstanding amt on against voucher
 	if against_voucher_type == "Purchase Invoice":
-		from erpnext.accounts.doctype.purchase_invoice.purchase_invoice import get_status
+		from accounting.accounts.doctype.purchase_invoice.purchase_invoice import get_status
 		data = frappe.db.get_value(against_voucher_type, against_voucher, 
-			["name as purchase_invoice", "outstanding_amount", 
-			"is_return", "due_date", "docstatus"])
-	elif against_voucher_type == "Sales Invoice":
-		from erpnext.accounts.doctype.sales_invoice.sales_invoice import get_status
-		data = frappe.db.get_value(against_voucher_type, against_voucher, 
-			["name as sales_invoice", "outstanding_amount", "is_discounted", 
-			"is_return", "due_date", "docstatus"])
+			["name as purchase_invoice", "docstatus"])
+	# elif against_voucher_type == "Sales Invoice":
+	# 	from erpnext.accounts.doctype.sales_invoice.sales_invoice import get_status
+	# 	data = frappe.db.get_value(against_voucher_type, against_voucher, 
+	# 		["name as sales_invoice", "outstanding_amount", "is_discounted", 
+	# 		"is_return", "due_date", "docstatus"])
 
 	precision = frappe.get_precision(against_voucher_type, "outstanding_amount")
 	data = list(data)
@@ -170,7 +169,6 @@ def update_against_account(voucher_type, voucher_no):
 
 	if not entries:
 		return
-	company_currency = erpnext.get_company_currency(entries[0].company)
 	precision = get_field_precision(frappe.get_meta("GL Entry")
 			.get_field("debit"), company_currency)
 

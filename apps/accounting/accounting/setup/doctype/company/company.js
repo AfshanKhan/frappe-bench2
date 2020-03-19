@@ -35,26 +35,6 @@ frappe.ui.form.on('Company', {
 
 });
 
-// accountig.company.set_chart_of_accounts_options = function(doc) {
-// 	var selected_value = doc.chart_of_accounts;
-// 	if(doc.country) {
-// 		return frappe.call({
-// 			method: "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country",
-// 			args: {
-// 				"country": doc.country,
-// 				"with_standard": true
-// 			},
-// 			callback: function(r) {
-// 				if(!r.exc) {
-// 					set_field_options("chart_of_accounts", [""].concat(r.message).join("\n"));
-// 					if(in_list(r.message, selected_value))
-// 						cur_frm.set_value("chart_of_accounts", selected_value);
-// 				}
-// 			}
-// 		})
-// 	}
-// }
-
 cur_frm.cscript.change_abbr = function() {
 	var dialog = new frappe.ui.Dialog({
 		title: "Replace Abbr",
