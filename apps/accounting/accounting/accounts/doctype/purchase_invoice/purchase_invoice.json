@@ -34,6 +34,7 @@
   "payments_section",
   "cash_bank_account",
   "more_info",
+  "credit_to",
   "is_opening",
   "column_break_40",
   "status"
@@ -248,12 +249,21 @@
    "options": "Company",
    "print_hide": 1,
    "remember_last_selected_value": 1
+  },
+  {
+   "fieldname": "credit_to",
+   "fieldtype": "Link",
+   "label": "Credit To",
+   "options": "Account",
+   "print_hide": 1,
+   "reqd": 1,
+   "search_index": 1
   }
  ],
  "icon": "fa fa-file-text",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-03-19 18:44:34.503645",
+ "modified": "2020-03-19 20:36:46.396256",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Purchase Invoice",

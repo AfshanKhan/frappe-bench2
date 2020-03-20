@@ -483,7 +483,7 @@ def get_gl_dict(self, args, account_currency=None, item=None):
 		"""this method populates the common properties of a gl entry record"""
 		# company = frappe.db.get_value("Company", "Gada Electronics",['name'], as_dict=False)
 		posting_date = args.get('posting_date') or self.get('posting_date')
-		fiscal_years = get_fiscal_year(posting_date, company=self.get('company') or args.get('company') )
+		fiscal_years = get_fiscal_year(posting_date, company=self.get('company'))
 		if len(fiscal_years) > 1:
 			frappe.throw(_("Multiple fiscal years exist for the date {0}. Please set company in Fiscal Year").format(
 				formatdate(posting_date)))
@@ -491,19 +491,18 @@ def get_gl_dict(self, args, account_currency=None, item=None):
 			fiscal_year = fiscal_years[0][0]
 
 		gl_dict = frappe._dict({
-			'company': self.get('company') or args.get('company'),
+			'company': self.get('company'),
 			'posting_date': posting_date,
 			'fiscal_year': fiscal_year,
-			'voucher_type': self.get('doctype') or args.get('doctype'),
-			'voucher_no': self.get('name') or args.get('name'),
-			'remarks': self.get("remarks") or self.get("remark"),
-			'debit': self.get('debit') or args.get('debit') or 0,
-			'credit': self.get('credit') or args.get('credit') or 0,
+			'voucher_type': self.get('doctype'),
+			'voucher_no': self.get('name'),
+			'remarks': self.get("remarks"),
+			'debit': 0,
+			'credit': 0,
 			'is_opening': self.get("is_opening") or "No",
-			'party_type': self.get('party_type') or args.get('party_type') or None,
-			'party': self.get('party') or args.get('party') or None,
+			'party_type': None,
+			'party': None,
 		})
-		# if args:
 		gl_dict.update(args)
 
 		return gl_dict
