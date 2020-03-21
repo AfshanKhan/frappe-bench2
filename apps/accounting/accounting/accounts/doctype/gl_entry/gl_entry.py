@@ -11,7 +11,6 @@ from frappe.model.naming import set_name_from_naming_options
 from frappe.model.meta import get_field_precision
 
 class GLEntry(Document):
-	# pass
 	def autoname(self):
 		"""
 		Temporarily name doc for fast insertion
@@ -136,55 +135,6 @@ def update_outstanding_amt(account, party_type, party, against_voucher_type, aga
 		# Validation : Outstanding can not be negative for JV
 		if bal < 0 and not on_cancel:
 			frappe.throw(_("Outstanding for {0} cannot be less than zero ({1})").format(against_voucher, fmt_money(bal)))
-
-	# if against_voucher_type in ["Sales Invoice", "Purchase Invoice"]:
-	# 	update_outstanding_amt_in_ref(against_voucher, against_voucher_type, bal)
-
-def update_outstanding_amt_in_ref(against_voucher, against_voucher_type, bal):
-	data = []
-	# Update outstanding amt on against voucher
-	if against_voucher_type == "Purchase Invoice":
-		from accounting.accounts.doctype.purchase_invoice.purchase_invoice import get_status
-		data = frappe.db.get_value(against_voucher_type, against_voucher, 
-			["name as purchase_invoice", "docstatus"])
-	# elif against_voucher_type == "Sales Invoice":
-	# 	from erpnext.accounts.doctype.sales_invoice.sales_invoice import get_status
-	# 	data = frappe.db.get_value(against_voucher_type, against_voucher, 
-	# 		["name as sales_invoice", "outstanding_amount", "is_discounted", 
-	# 		"is_return", "due_date", "docstatus"])
-
-	precision = frappe.get_precision(against_voucher_type, "total")
-	data = list(data)
-	data.append(precision)
-	status = get_status(data)
-	frappe.db.set_value(against_voucher_type, against_voucher, {
-		'outstanding_amount': bal,
-		'status': status
-	})
-
-def update_against_account(voucher_type, voucher_no):
-	entries = frappe.db.get_all("GL Entry",
-		filters={"voucher_type": voucher_type, "voucher_no": voucher_no},
-		fields=["name", "party", "against", "debit", "credit", "account", "company"])
-
-	if not entries:
-		return
-	precision = get_field_precision(frappe.get_meta("GL Entry")
-			.get_field("debit"), company_currency)
-
-	accounts_debited, accounts_credited = [], []
-	for d in entries:
-		if flt(d.debit, precision) > 0: accounts_debited.append(d.party or d.account)
-		if flt(d.credit, precision) > 0: accounts_credited.append(d.party or d.account)
-
-	for d in entries:
-		if flt(d.debit, precision) > 0:
-			new_against = ", ".join(list(set(accounts_credited)))
-		if flt(d.credit, precision) > 0:
-			new_against = ", ".join(list(set(accounts_debited)))
-
-		if d.against != new_against:
-			frappe.db.set_value("GL Entry", d.name, "against", new_against)
 
 def on_doctype_update():
 	frappe.db.add_index("GL Entry", ["against_voucher_type", "against_voucher"])

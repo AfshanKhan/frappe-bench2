@@ -422,6 +422,7 @@ def get_party_account_and_balance(company, party_type, party, cost_center=None):
 		"party_balance": party_balance,
 	}
 
+@frappe.whitelist()
 def get_party_account(party_type, party, company):
 	"""Returns the account for the given `party`.
 		Will first search in party (Customer / Supplier) record, if not found,
@@ -443,9 +444,11 @@ def get_party_account(party_type, party, company):
 			{"parenttype": party_group_doctype, "parent": group, "company": company}, "account")
 
 	if not account and party_type in ['Customer', 'Supplier']:
-		default_account_name = "default_receivable_account" \
-			if party_type=="Customer" else "default_payable_account"
-		account = frappe.get_cached_value('Company',  company,  default_account_name)
+		# default_account_name = "default_receivable_account" \
+		account = "Debtors" \
+			if party_type=="Customer" else "Creditors"
+		account = frappe.db.get_value("Account", account, as_dict=False)
+		# frappe.get_cached_value('Company',  company,  account_type)
 
 	return account
 

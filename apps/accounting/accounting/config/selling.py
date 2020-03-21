@@ -26,6 +26,11 @@ def get_data():
 					"onboard": 1,
 					"dependencies": ["Item", "Customer"],
 				},
+				{
+					"type": "doctype",
+					"name": "Payment Entry",
+					"description": _("Cash transactions against party")
+				},
 			]
 		},
 		{

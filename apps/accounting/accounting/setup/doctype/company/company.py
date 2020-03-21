@@ -3,23 +3,12 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-# import frappe
-# from frappe.model.document import Document
-
 import frappe, os, json
 from frappe import _
 from frappe.utils import get_timestamp
-
-# from frappe.utils import cint, today, formatdate
-# import frappe.defaults
 from frappe.cache_manager import clear_defaults_cache
-
 from frappe.model.document import Document
-# from frappe.contacts.address_and_contact import load_address_and_contact
-# from frappe.utils.nestedset import NestedSet
-
 from past.builtins import cmp
-# import functools
 from frappe.utils.nestedset import rebuild_tree
 from six import iteritems
 from frappe.utils import cstr
@@ -27,13 +16,6 @@ from unidecode import unidecode
 
 
 class Company(Document):
-	# pass
-
-# class Company(NestedSet):
-
-	# def onload(self):
-	# 	self.get("__onload")["transactions_exist"] = self.check_if_transactions_exist()
-
 	def check_if_transactions_exist(self):
 		exists = False
 		for doctype in ["Sales Invoice", "Delivery Note", "Sales Order", "Quotation",
@@ -53,10 +35,6 @@ class Company(Document):
 			self.abbr = ''.join([c[0] for c in self.company_name.split()]).upper()
 
 		self.abbr = self.abbr.strip()
-
-		# if self.get('__islocal') and len(self.abbr) > 5:
-		# 	frappe.throw(_("Abbreviation cannot have more than 5 characters"))
-
 		if not self.abbr.strip():
 			frappe.throw(_("Abbreviation is mandatory"))
 
@@ -64,33 +42,11 @@ class Company(Document):
 			frappe.throw(_("Abbreviation already used for another company"))
 
 	def on_update(self):
-	# 	NestedSet.on_update(self)
 		if not frappe.db.sql("""select name from tabAccount
 				where company=%s and docstatus<2 limit 1""", self.name):
-			# if not frappe.local.flags.ignore_chart_of_accounts:
 			self.create_charts_of_accounts()
-			# self.create_default_warehouses()
-		
+			
 		frappe.clear_cache()
-
-	def create_default_warehouses(self):
-		for wh_detail in [
-			{"warehouse_name": _("All Warehouses"), "is_group": 1},
-			{"warehouse_name": _("Stores"), "is_group": 0},
-			{"warehouse_name": _("Work In Progress"), "is_group": 0},
-			{"warehouse_name": _("Finished Goods"), "is_group": 0}]:
-
-			if not frappe.db.exists("Warehouse", "{0} - {1}".format(wh_detail["warehouse_name"], self.abbr)):
-				warehouse = frappe.get_doc({
-					"doctype":"Warehouse",
-					"warehouse_name": wh_detail["warehouse_name"],
-					"is_group": wh_detail["is_group"],
-					"company": self.name,
-					"parent_warehouse": "" if wh_detail["is_group"] else "{0} - {1}".format(_("All Warehouses"), self.abbr)
-				})
-				warehouse.flags.ignore_permissions = True
-				warehouse.flags.ignore_mandatory = True
-				warehouse.insert()	
 
 	def create_charts_of_accounts(self):
 		chart = get_chart()
@@ -151,36 +107,6 @@ class Company(Document):
 
 	def abbreviate(self):
 		self.abbr = ''.join([c[0].upper() for c in self.company_name.split()])
-
-	# def on_trash(self):
-	# 	"""
-	# 		Trash accounts and cost centers for this company if no gl entry exists
-	# 	"""
-	# 	frappe.utils.nestedset.update_nsm(self)
-
-	# 	rec = frappe.db.sql("SELECT name from `tabGL Entry` where company = %s", self.name)
-	# 	if not rec:
-	# 		frappe.db.sql("""delete from `tabBudget Account`
-	# 			where exists(select name from tabBudget
-	# 				where name=`tabBudget Account`.parent and company = %s)""", self.name)
-
-	# 		for doctype in ["Account", "Cost Center", "Budget", "Party Account"]:
-	# 			frappe.db.sql("delete from `tab{0}` where company = %s".format(doctype), self.name)
-
-	# 	if not frappe.db.get_value("Stock Ledger Entry", {"company": self.name}):
-	# 		frappe.db.sql("""delete from `tabWarehouse` where company=%s""", self.name)
-
-	# 	# clear default accounts, warehouses from item
-	# 	warehouses = frappe.db.sql_list("select name from tabWarehouse where company=%s", self.name)
-	# 	if warehouses:
-	# 		frappe.db.sql("""delete from `tabItem Reorder` where warehouse in (%s)"""
-	# 			% ', '.join(['%s']*len(warehouses)), tuple(warehouses))
-
-	
-	# 	frappe.db.sql("delete from tabEmployee where company=%s", self.name)
-	# 	frappe.db.sql("delete from tabDepartment where company=%s", self.name)
-	
-
 
 def get_chart():
 		return {
@@ -331,74 +257,3 @@ def get_name_with_abbr(name, company):
 		parts.append(company_abbr)
 
 	return " - ".join(parts)
-
-
-# def get_all_transactions_annual_history(company):
-# 	out = {}
-
-# 	items = frappe.db.sql('''
-# 		select transaction_date, count(*) as count
-
-# 		from (
-# 			select name, transaction_date, company
-# 			from `tabQuotation`
-
-# 			UNION ALL
-
-# 			select name, transaction_date, company
-# 			from `tabSales Order`
-
-# 			UNION ALL
-
-# 			select name, posting_date as transaction_date, company
-# 			from `tabDelivery Note`
-
-# 			UNION ALL
-
-# 			select name, posting_date as transaction_date, company
-# 			from `tabSales Invoice`
-
-# 			UNION ALL
-
-# 			select name, creation as transaction_date, company
-# 			from `tabIssue`
-
-# 			UNION ALL
-
-# 			select name, creation as transaction_date, company
-# 			from `tabProject`
-# 		) t
-
-# 		where
-# 			company=%s
-# 			and
-# 			transaction_date > date_sub(curdate(), interval 1 year)
-
-# 		group by
-# 			transaction_date
-# 			''', (company), as_dict=True)
-
-# 	for d in items:
-# 		timestamp = get_timestamp(d["transaction_date"])
-# 		out.update({ timestamp: d["count"] })
-
-# 	return out
-
-# def get_timeline_data(doctype, name):
-# 	'''returns timeline data based on linked records in dashboard'''
-# 	out = {}
-# 	date_to_value_dict = {}
-
-# 	history = frappe.get_cached_value('Company',  name,  "transactions_annual_history")
-
-# 	try:
-# 		date_to_value_dict = json.loads(history) if history and '{' in history else None
-# 	except ValueError:
-# 		date_to_value_dict = None
-
-# 	if date_to_value_dict is None:
-# 		update_transactions_annual_history(name, True)
-# 		history = frappe.get_cached_value('Company',  name,  "transactions_annual_history")
-# 		return json.loads(history) if history and '{' in history else {}
-
-# 	return date_to_value_dict

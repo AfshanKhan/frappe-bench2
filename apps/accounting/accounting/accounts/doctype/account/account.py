@@ -4,15 +4,10 @@
 
 from __future__ import unicode_literals
 import frappe
-# from frappe.model.document import Document
 from frappe.utils import cint, cstr
 from frappe import throw, _
 from frappe.utils.nestedset import NestedSet, get_ancestors_of, get_descendants_of
 from frappe.desk.reportview import get_match_cond, get_filters_cond
-
-
-# class Account(Document):
-# 	pass
 
 class RootNotEditable(frappe.ValidationError): pass
 class BalanceMismatchError(frappe.ValidationError): pass

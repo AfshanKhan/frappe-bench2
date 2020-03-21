@@ -22,27 +22,6 @@ frappe.ui.form.on('Purchase Invoice', {
 
 frappe.provide("accounting.accounts");
 
-// // Hide Fields
-// // ------------
-// function hide_fields(doc) {
-// 	var parent_fields = ['is_opening'];
-
-// 	if(cint(doc.is_paid) == 1) {
-// 		hide_field(parent_fields);
-// 	} else {
-// 		for (var i in parent_fields) {
-// 			var docfield = frappe.meta.docfield_map[doc.doctype][parent_fields[i]];
-// 			if(!docfield.hidden) unhide_field(parent_fields[i]);
-// 		}
-// 	}
-// 	cur_frm.refresh_fields();
-// }
-
-// cur_frm.cscript.update_stock = function(doc, dt, dn) {
-// 	hide_fields(doc, dt, dn);
-// 	this.frm.fields_dict.items.grid.toggle_reqd("item_code", doc.update_stock? true: false)
-// }
-
 cur_frm.fields_dict.cash_bank_account.get_query = function(doc) {
 	return {
 		filters: [

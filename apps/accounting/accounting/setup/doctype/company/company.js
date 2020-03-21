@@ -1,14 +1,7 @@
 // Copyright (c) 2020, Frappe and contributors
 // For license information, please see license.txt
 
-
-// frappe.provide("accounting.company");
-
 frappe.ui.form.on('Company', {
-	// refresh: function(frm) {
-
-	// }
-
 	company_name: function(frm) {
 		if(frm.doc.__islocal) {
 			// add missing " " arg in split method
@@ -23,8 +16,7 @@ frappe.ui.form.on('Company', {
 	refresh: function(frm) {
 		if(!frm.doc.__islocal) {
 			frm.doc.abbr && frm.set_df_property("abbr", "read_only", 1);
-		// }
-		// if(!frm.doc.__islocal) {
+
 		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Company'}
 
 		frm.add_custom_button(__('Chart of Accounts'), function() {
