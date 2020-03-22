@@ -12,6 +12,7 @@
   "customer",
   "customer_name",
   "column_break_5",
+  "company",
   "posting_date",
   "posting_time",
   "set_posting_time",
@@ -33,11 +34,11 @@
   "in_words",
   "payments_section",
   "cash_bank_account",
-  "section_break_40",
-  "status",
   "more_info",
   "debit_to",
-  "is_opening_entry"
+  "is_opening_entry",
+  "column_break_29",
+  "status"
  ],
  "fields": [
   {
@@ -227,10 +228,6 @@
    "print_hide": 1
   },
   {
-   "fieldname": "section_break_40",
-   "fieldtype": "Section Break"
-  },
-  {
    "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -250,6 +247,17 @@
    "print_hide": 1
   },
   {
+   "default": "No",
+   "fieldname": "is_opening_entry",
+   "fieldtype": "Select",
+   "label": "Is Opening Entry",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "debit_to",
    "fieldtype": "Link",
    "label": "Debit To",
@@ -259,17 +267,19 @@
    "search_index": 1
   },
   {
-   "default": "No",
-   "fieldname": "is_opening_entry",
-   "fieldtype": "Select",
-   "label": "Is Opening Entry",
-   "options": "No\nYes"
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "print_hide": 1,
+   "remember_last_selected_value": 1
   }
  ],
  "icon": "fa fa-file-text",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-03-13 11:40:42.962939",
+ "modified": "2020-03-22 15:19:13.110447",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",

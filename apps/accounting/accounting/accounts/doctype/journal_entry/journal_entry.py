@@ -439,9 +439,10 @@ def get_party_account(party_type, party, company):
 
 	if not account and party_type in ['Customer', 'Supplier']:
 		party_group_doctype = "Supplier Group" if party_type=="Supplier" else None
-		group = frappe.get_cached_value(party_type, party, scrub(party_group_doctype))
-		account = frappe.db.get_value("Party Account",
-			{"parenttype": party_group_doctype, "parent": group, "company": company}, "account")
+		if party_group_doctype:
+			group = frappe.get_cached_value(party_type, party, scrub(party_group_doctype))
+			account = frappe.db.get_value("Party Account",
+				{"parenttype": party_group_doctype, "parent": group, "company": company}, "account")
 
 	if not account and party_type in ['Customer', 'Supplier']:
 		# default_account_name = "default_receivable_account" \

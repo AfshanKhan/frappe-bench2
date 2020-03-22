@@ -119,7 +119,7 @@ class PurchaseInvoice(Document):
 	
 	def make_item_gl_entries(self, gl_entries):
 		# item gl entries
-		stock_items = self.get_stock_items()
+		stock_items = get_stock_items(self)
 		for item in self.get("items"):
 			if flt(item.amount):
 				amount = flt(item.amount, item.precision("amount"))
@@ -129,16 +129,18 @@ class PurchaseInvoice(Document):
 						"debit": amount,
 					}, item=item))
 
-	def get_stock_items(self):
-			stock_items = []
-			item_codes = list(set(item.item_code for item in self.get("items")))
-			if item_codes:
-				stock_items = [r[0] for r in frappe.db.sql("""
-					select name from `tabItem`
-					where name in (%s) and is_stock_item=1
-				""" % (", ".join((["%s"] * len(item_codes))),), item_codes)]
 
-			return stock_items
+@frappe.whitelist()
+def get_stock_items(self):
+		stock_items = []
+		item_codes = list(set(item.item_code for item in self.get("items")))
+		if item_codes:
+			stock_items = [r[0] for r in frappe.db.sql("""
+				select name from `tabItem`
+				where name in (%s) and is_stock_item=1
+			""" % (", ".join((["%s"] * len(item_codes))),), item_codes)]
+
+		return stock_items
 
 def get_status(*args):
 	docstatus = args[0]

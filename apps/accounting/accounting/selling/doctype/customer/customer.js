@@ -66,11 +66,8 @@ frappe.ui.form.on("Customer", {
 			frm.toggle_display("naming_series", false);
 		} 
 		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Customer'}
-		// frm.toggle_display(['address_html','contact_html'], !frm.doc.__islocal);
-
+		
 		if(!frm.doc.__islocal) {
-			// frappe.contacts.render_address_and_contact(frm);
-
 			// custom buttons
 			frm.add_custom_button(__('Accounting Ledger'), function() {
 				frappe.set_route('query-report', 'General Ledger',

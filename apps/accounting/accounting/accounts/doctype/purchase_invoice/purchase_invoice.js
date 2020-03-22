@@ -65,7 +65,6 @@ cur_frm.cscript.expense_account = function(doc, cdt, cdn){
 
 frappe.ui.form.on("Purchase Invoice Item", "rate", function(frm, cdt, cdn){
 	var d = frappe.get_doc(cdt, cdn);
-	console.log(d);
 	var amount = parseFloat(d.received_qty) * parseFloat(d.rate)
 	frappe.model.set_value(cdt, cdn, "amount", amount);
 	frappe.model.set_value(cdt, cdn, "stock_qty", d.received_qty);
