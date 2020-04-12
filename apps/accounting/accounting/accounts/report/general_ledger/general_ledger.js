@@ -173,3 +173,9 @@ __('Address needs to be linked to a Company.{0} {1}' , ['a', 'b'])
 _("Address needs to be linked to a Company.{0}", context="this is the context").format('asdf', 'adsf')
 
 _('Welcome %s, get started with ERPNext in just a few clicks.' % full_name)
+
+frappe.ui.form.on('Google Settings', {
+	refresh: function(frm) {
+		frm.dashboard.set_headline(__("For more information, {0}.", [`<a href='https://erpnext.com/docs/user/manual/en/erpnext_integration/google_settings'>${__('Click here')}</a>`]));
+	}
+});
