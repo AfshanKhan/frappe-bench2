@@ -40,9 +40,11 @@ jobs:
         git fetch origin $GITHUB_REF:$GITHUB_REF -q
         files=$(git diff --name-only $GITHUB_REF)
         echo $files
-    - name: Run check_translation
+      env:
+        GITHUB_CONTEXT: $files
+    - name: Run check_translation 
       run: |
         import os
         print(os.environ['GITHUB_BASE_REF'])
-        # print(env.GITHUB_CONTEXT)
+        print(os.environ['GITHUB_CONTEXT'])
       shell: python 
