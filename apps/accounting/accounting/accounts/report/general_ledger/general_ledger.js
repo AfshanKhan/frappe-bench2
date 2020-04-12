@@ -166,3 +166,4 @@ accounting.dimension_filters.forEach((dimension) => {
 });
 
 
+__('Address needs to be linked to a Company.' , null, "this is the context")
