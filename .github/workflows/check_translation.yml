@@ -37,5 +37,5 @@ jobs:
       run: |
         # import os
         # print(os.environ['PATH'])
-        print('Hello Github')
+        print(files)
       shell: python 
