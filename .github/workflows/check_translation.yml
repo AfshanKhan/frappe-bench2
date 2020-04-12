@@ -44,7 +44,7 @@ jobs:
       env:
         GITHUB_CONTEXT: $GITHUB_BASE_REF
       run: |
-        # import os
-        # print(os.environ['PATH'])
-        print(env.GITHUB_CONTEXT)
+        import os
+        print(os.environ['GITHUB_CONTEXT'])
+        # print(env.GITHUB_CONTEXT)
       shell: python 
