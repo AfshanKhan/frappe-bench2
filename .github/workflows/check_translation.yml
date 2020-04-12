@@ -46,5 +46,5 @@ jobs:
       run: |
         import os
         print(os.environ['GITHUB_BASE_REF'])
-        print(os.environ['GITHUB_CONTEXT'])
+        print(os.environ['files'])
       shell: python 
