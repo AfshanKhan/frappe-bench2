@@ -47,7 +47,7 @@ jobs:
         import os
         import subprocess
 
-        subprocess.check_call(["git", "fetch", "origin/"+os.environ['GITHUB_BASE_REF']])
+        subprocess.check_call(["git", "fetch", os.environ['GITHUB_BASE_REF']])
         # , ":" ,'"'+os.environ['GITHUB_BASE_REF']+'"', "-q"
         # files = subprocess.check_call('git diff --name-only '+os.environ['GITHUB_BASE_REF'])
         # print(files)
