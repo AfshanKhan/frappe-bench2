@@ -44,5 +44,5 @@ jobs:
       run: |
         # import os
         # print(os.environ['PATH'])
-        print($GITHUB_BASE_REF)
+        print(GITHUB_BASE_REF)
       shell: python 
