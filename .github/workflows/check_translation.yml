@@ -29,13 +29,13 @@ jobs:
       with:
         python-version: 3.6
     - name: Run get_files for base
-      if: $GITHUB_BASE_REF
+      if: github.event_name == 'pull_request'
       run: |
         git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF -q
         files=$(git diff --name-only $GITHUB_BASE_REF)
         echo $files
     - name: Run get_files for current
-      if: $GITHUB_REF
+      if: github.event_name == 'push'
       run: |
         git fetch origin $GITHUB_REF:$GITHUB_REF -q
         files=$(git diff --name-only $GITHUB_REF)
