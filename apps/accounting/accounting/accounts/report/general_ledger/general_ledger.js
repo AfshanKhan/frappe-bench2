@@ -166,3 +166,4 @@ accounting.dimension_filters.forEach((dimension) => {
 });
 
 
+__('Address needs to be linked to a Company.{0} {1}' , ['a', 'b'])
