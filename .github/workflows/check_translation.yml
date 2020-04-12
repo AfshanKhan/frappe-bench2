@@ -41,6 +41,8 @@ jobs:
         files=$(git diff --name-only $GITHUB_REF)
         echo $files
     - name: Run check_translation
+      with:
+        GITHUB_BASE_REF: $GITHUB_BASE_REF
       run: |
         # import os
         # print(os.environ['PATH'])
