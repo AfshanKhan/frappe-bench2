@@ -46,6 +46,7 @@ jobs:
       run: |
         import os
         import subprocess
+        import re
         pattern = re.compile(r"_\(([\"']{,3})(?P<message>((?!\1).)*)\1(\s*,\s*context\s*=\s*([\"'])(?P<py_context>((?!\5).)*)\5)*(\s*,\s*(.)*?\s*(,\s*([\"'])(?P<js_context>((?!\11).)*)\11)*)*\)")
         temp = re.compile(r"_\(([\"']{,3})")
         subprocess.run('git fetch origin '+os.environ['GITHUB_BASE_REF']+ ' :' +os.environ['GITHUB_BASE_REF']+ '-q', shell=True)
