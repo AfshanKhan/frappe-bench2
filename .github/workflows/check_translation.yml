@@ -1,9 +1,5 @@
 name: Check format
 on:
-  push:
-    branches: 
-    - master 
-    - develop
   pull_request:
     branches: 
     - master 
@@ -19,7 +15,6 @@ jobs:
       with:
         python-version: 3.6
     - name: Run check_translation for pull_request
-      if: github.event_name == 'pull_request'
       run: |
         import os
         import subprocess
@@ -28,30 +23,6 @@ jobs:
         temp = re.compile(r"_\(([\"']{,3})")
         subprocess.run('git fetch origin '+os.environ['GITHUB_BASE_REF']+ ' :' +os.environ['GITHUB_BASE_REF']+ ' -q', shell=True)
         files = subprocess.check_output('git diff --name-only '+os.environ['GITHUB_BASE_REF'], shell=True)
-        files = files.decode('utf-8')
-        files = files.split()
-        for file in files:
-          with open(file, 'r') as f:
-            for num, line in enumerate(f, 1):
-              all_matches = temp.finditer(line)
-              if all_matches:
-                for match in all_matches:
-                  verify = pattern.search(line)
-                  if not verify:
-                    print(num)
-                    print(line)
-      shell: python 
-
-    - name: Run check_translation for push
-      if: github.event_name == 'push'
-      run: |
-        import os
-        import subprocess
-        import re
-        pattern = re.compile(r"_\(([\"']{,3})(?P<message>((?!\1).)*)\1(\s*,\s*context\s*=\s*([\"'])(?P<py_context>((?!\5).)*)\5)*(\s*,\s*(.)*?\s*(,\s*([\"'])(?P<js_context>((?!\11).)*)\11)*)*\)")
-        temp = re.compile(r"_\(([\"']{,3})")
-        subprocess.run('git fetch origin '+os.environ['GITHUB_REF'], shell=True)
-        files = subprocess.check_output('git diff --name-only '+os.environ['GITHUB_REF'], shell=True)
         files = files.decode('utf-8')
         files = files.split()
         for file in files:
