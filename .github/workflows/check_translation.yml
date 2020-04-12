@@ -32,9 +32,10 @@ jobs:
       run: |
         git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF -q
         files=$(git diff --name-only $GITHUB_BASE_REF --diff-filter=d)
-        echo $files
+        echo 'Hey Github'
     - name: Run check_translation
       run: |
-        import os
-        print(os.environ['PATH'])
+        # import os
+        # print(os.environ['PATH'])
+        print('Hello Github')
       shell: python 
