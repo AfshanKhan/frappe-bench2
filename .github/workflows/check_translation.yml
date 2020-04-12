@@ -56,10 +56,11 @@ jobs:
         for file in files:
           with open(file, 'r') as f:
             for num, line in enumerate(f, 1):
-              matche = temp.finditer(line)
-              if matche:
-                verify = pattern.search(line)
-                if not verify:
-                  print(line)
-                  print(num)
+              all_matches = temp.finditer(line)
+              if all_matches:
+                for match in all_matches:
+                  verify = pattern.search(line)
+                  if not verify:
+                    print(line)
+                    print(num)
       shell: python 
