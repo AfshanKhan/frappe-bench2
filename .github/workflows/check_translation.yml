@@ -28,13 +28,13 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
-    - name: Run check_translation
+    - name: Run get_files
       run: |
         git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF -q
         files=$(git diff --name-only $GITHUB_BASE_REF --diff-filter=d)
-        python {
-        import re
-        for file in files:
-          print(file)
-        }
-        
+        echo $files
+    - name: Run check_translation
+      run: |
+        import os
+        print(os.environ['PATH'])
+      shell: python 
