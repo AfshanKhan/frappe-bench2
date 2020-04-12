@@ -28,10 +28,17 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
-    - name: Run get_files
+    - name: Run get_files for base
+      if: $GITHUB_BASE_REF
       run: |
         git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF -q
         files=$(git diff --name-only $GITHUB_BASE_REF)
+        echo $files
+    - name: Run get_files for current
+      if: $GITHUB_REF
+      run: |
+        git fetch origin $GITHUB_REF:$GITHUB_REF -q
+        files=$(git diff --name-only $GITHUB_REF)
         echo $files
     - name: Run check_translation
       run: |
