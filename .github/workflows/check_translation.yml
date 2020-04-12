@@ -42,7 +42,7 @@ jobs:
                     print(line)
       shell: python 
 
-    name: Run check_translation for push
+    - name: Run check_translation for push
       if: github.event_name == 'push'
       run: |
         import os
