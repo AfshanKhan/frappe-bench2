@@ -49,7 +49,8 @@ jobs:
         subprocess.run('git fetch origin '+os.environ['GITHUB_BASE_REF']+ ' :' +os.environ['GITHUB_BASE_REF']+ '-q', shell=True)
         files = subprocess.check_output('git diff --name-only '+os.environ['GITHUB_BASE_REF'], shell=True)
         files = files.decode('utf-8')
-        files.split()
-        print(files)
+        files = files.split()
+        print(files[0])
         print(os.environ['GITHUB_BASE_REF'])
+        print(files[0])
       shell: python 
