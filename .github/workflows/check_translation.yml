@@ -50,7 +50,7 @@ jobs:
         import re
         pattern = re.compile(r"_\(([\"']{,3})(?P<message>((?!\1).)*)\1(\s*,\s*context\s*=\s*([\"'])(?P<py_context>((?!\5).)*)\5)*(\s*,\s*(.)*?\s*(,\s*([\"'])(?P<js_context>((?!\11).)*)\11)*)*\)")
         temp = re.compile(r"_\(([\"']{,3})")
-        subprocess.run('git fetch origin '+os.environ['GITHUB_REF']+ ' :' +os.environ['GITHUB_REF']+ ' -q', shell=True)
+        subprocess.run('git fetch origin '+os.environ['GITHUB_REF'], shell=True)
         files = subprocess.check_output('git diff --name-only '+os.environ['GITHUB_REF'], shell=True)
         files = files.decode('utf-8')
         files = files.split()
