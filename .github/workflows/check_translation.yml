@@ -42,7 +42,7 @@ jobs:
         echo $files
     - name: Run check_translation
       env:
-        GITHUB_CONTEXT: $GITHUB_BASE_REF
+        GITHUB_CONTEXT: github.base_ref
       run: |
         import os
         print(os.environ['GITHUB_CONTEXT'])
