@@ -32,8 +32,9 @@ jobs:
       run: |
         git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF -q
         files=$(git diff --name-only $GITHUB_BASE_REF --diff-filter=d)
-        python
+        python {
         import re
         for file in files:
           print(file)
+        }
         
