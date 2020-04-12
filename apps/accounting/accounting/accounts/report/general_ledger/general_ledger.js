@@ -169,3 +169,5 @@ accounting.dimension_filters.forEach((dimension) => {
 __('Address needs to be linked to a Company.' , null, "this is the context")
 
 __('Address needs to be linked to a Company.{0} {1}' , ['a', 'b'])
+
+_("Address needs to be linked to a Company.{0}", context="this is the context").format('asdf', 'adsf')
