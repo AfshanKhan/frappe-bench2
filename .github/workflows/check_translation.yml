@@ -61,6 +61,6 @@ jobs:
                 for match in all_matches:
                   verify = pattern.search(line)
                   if not verify:
-                    print(line)
                     print(num)
+                    print(line)
       shell: python 
