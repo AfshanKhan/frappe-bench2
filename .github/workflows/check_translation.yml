@@ -31,7 +31,7 @@ jobs:
     - name: Run get_files
       run: |
         git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF -q
-        files=$(git diff --name-only $GITHUB_BASE_REF --diff-filter=d)
+        files=$(git diff --name-only $GITHUB_BASE_REF)
         echo $files
     - name: Run check_translation
       run: |
