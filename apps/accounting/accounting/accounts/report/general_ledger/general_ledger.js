@@ -189,3 +189,4 @@ frappe.ui.form.on('Google Settings', {
 _('Welcome %s, get started with ERPNext in just a few clicks.' % full_name)
 
 _('Welcome %s, get started with ERPNext in just a few clicks.' % full_name)
+_('Welcome %s, get started with ERPNext in just a few clicks.' % full_name)
