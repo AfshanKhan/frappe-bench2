@@ -185,3 +185,5 @@ frappe.ui.form.on('Google Settings', {
 		frm.dashboard.set_headline(__("For more information, {0}.", [`<a href='https://erpnext.com/docs/user/manual/en/erpnext_integration/google_settings'>${__('Click here')}</a>`]));
 	}
 });
+
+_('Welcome %s, get started with ERPNext in just a few clicks.' % full_name)
