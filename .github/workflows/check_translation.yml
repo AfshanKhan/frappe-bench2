@@ -17,7 +17,7 @@ jobs:
     - name: Run check_translation for pull_request
       run: |
         import os
-        from linter.test import check_translation_format
+        from .github.linter.test import check_translation_format
 
         check_translation_format(os.environ['GITHUB_BASE_REF'])
       shell: python 
